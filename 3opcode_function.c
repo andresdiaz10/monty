@@ -12,12 +12,14 @@ void mod_s(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	if ((*data_structure)->next->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	(*data_structure)->next->next->n %= (*data_structure)->next->n;
