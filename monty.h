@@ -64,6 +64,7 @@ int bad_operator(char *opcode, unsigned int line_number);
 void push(stack_t **data_structure, unsigned int line_number);
 void pall(stack_t **data_structure, unsigned int line_number);
 void pint(stack_t **data_structure, unsigned int line_number);
+void swap(stack_t **data_structure, unsigned int line_number);
 
 int abs(int n);
 int num_lenght(int n, int base);

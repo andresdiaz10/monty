@@ -88,3 +88,29 @@ void pint(stack_t **data_structure, unsigned int line_number)
 	}
 	printf("%d\n", (*data_structure)->next->n);
 }
+/**
+ * swap - a
+ * @data_structure: a
+ * @line_number: a
+ *
+ * Return: none
+ */
+void swap(stack_t **data_structure, unsigned int line_number)
+{
+	stack_t *aux;
+
+	if (!((*data_structure)->next)|| (*data_structure)->next->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		last_token(EXIT_FAILURE);
+		return;
+	}
+	aux = (*data_structure)->next->next;
+	(*data_structure)->next->next = aux->next;
+	(*data_structure)->next->prev = aux;
+	if (aux->next)
+		aux->next->prev = (*data_structure)->next;
+	aux->next = (*data_structure)->next;
+	aux->prev = *data_structure;
+	(*data_structure)->next = aux;
+}

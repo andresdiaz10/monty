@@ -12,6 +12,7 @@ void (*get_operator(char *opcode))(stack_t **data_structure, unsigned int line_n
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	int index;
