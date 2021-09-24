@@ -129,6 +129,7 @@ void pop(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		last_token(EXIT_FAILURE);
+		return;
 	}
 	aux = (*data_structure)->next->next;
 	free((*data_structure)->next);

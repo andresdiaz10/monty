@@ -24,6 +24,7 @@ void add(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		return;
 	}
 
 	(*data_structure)->next->next->n += (*data_structure)->next->n;
