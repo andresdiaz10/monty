@@ -2,15 +2,16 @@
 
 /**
  * get_operator - if the word match with a operator return a function 
- * @word: string to match with the operator
+ * @opcode: string to match with the operator
  *
- * Return: pointer to the function
+ * Return: None
  */
 void (*get_operator(char *opcode))(stack_t **data_structure, unsigned int line_number)
 {
 	instruction_t operators[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	int index;

@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * push - Push a int to the data structure
+ * @data_structure: pointer to the data structure
+ * @line_number: line number to the function is call
+ *
+ * Return: None
+ */
 void push(stack_t **data_structure, unsigned int line_number)
 {
 	int index;
@@ -37,7 +43,23 @@ void push(stack_t **data_structure, unsigned int line_number)
 			aux->prev = new_data;
 		(*data_structure)->next = new_data;
 	}
+	else
+	{
+		aux = *data_structure;
+		while (aux->next)
+			aux = aux->next;
+		new_data->prev = aux;
+		new_data->next = NULL;
+		aux->next = new_data;
+	}
 }
+/**
+ * pall - print the values in the data structure
+ * @data_structure: a
+ * @line_number: a
+ *
+ * Return: None
+ */
 void pall(stack_t **data_structure, unsigned int line_number)
 {
 	stack_t *aux = (*data_structure)->next;
@@ -48,4 +70,21 @@ void pall(stack_t **data_structure, unsigned int line_number)
 		printf("%d\n", aux->n);
 		aux = aux->next;
 	}
+}
+/**
+ * pint - a
+ * @data_structure: a
+ * @line_number: a
+ *
+ * Return: none
+ */
+void pint(stack_t **data_structure, unsigned int line_number)
+{
+	if (!((*data_structure)->next))
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		last_token(EXIT_FAILURE);
+		return;
+	}
+	printf("%d\n", (*data_structure)->next->n);
 }

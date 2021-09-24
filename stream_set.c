@@ -48,7 +48,7 @@ int count_words(char *line)
  * separate_word - get a line stream and separates with a delim
  * @line: a string to separate
  *
- * @Return: a pointer with a array
+ * Return: a pointer with a array
  */
 char **separate_word(char *line)
 {

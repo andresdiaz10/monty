@@ -1,5 +1,6 @@
 #include "monty.h"
-char **token = NULL; /*Avoid error*/ 
+
+char **token = NULL;
 /**
  * see_data_structure - see if the linked list is a stack or queue
  * @data_structure: a pointer to the linked list
@@ -23,18 +24,16 @@ int see_data_structure(stack_t *data_structure)
 int exe_line(FILE *stream)
 {
 	void (*f)(stack_t **stack, unsigned int line_number);
+	char *line = NULL; /*Avoid error*/
+	size_t len = 0, lenght_prev;
 	int aux = EXIT_SUCCESS;
-	char *line = NULL;
-	size_t len = 0;
-	size_t lenght_prev;
-	ssize_t nread;
 	unsigned int line_number = 0;
 	stack_t *data_structure = NULL;
 
-	aux = set_data_structure(&data_structure);
-	if (aux == EXIT_FAILURE)
-		return (aux);
-	while ((nread = getline(&line, &len, stream)) != -1) 
+	if (set_data_structure(&data_structure) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+
+	while (getline(&line, &len, stream) != -1)
 	{
 	       token = separate_word(line);
 	       line_number++;
@@ -43,7 +42,7 @@ int exe_line(FILE *stream)
 		       if (empty(line))
 			       continue;
 		       free_data_structure(&data_structure);
-		       return(alloc_message());
+		       return (alloc_message());
 	       }
 	       else if (token[0][0] == '#')
 	       {
@@ -70,7 +69,7 @@ int exe_line(FILE *stream)
 		       break;
 	       }
 	       free_word();
-        }
+	}
 	free_data_structure(&data_structure);
 	if (*line == 0 && line)
 	{
@@ -100,7 +99,7 @@ int set_data_structure(stack_t **data_structure)
 	return (EXIT_SUCCESS);
 }
 /**
- * allloc_mesage - print in the stderr when exist a alloc error
+ * alloc_message - print in the stderr when exist a alloc error
  *
  * Return: EXIT_FAILURE
  */
