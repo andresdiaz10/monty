@@ -71,6 +71,9 @@ void add(stack_t **data_structure, unsigned int line_number);
 void sub(stack_t **data_structure, unsigned int line_number);
 void div_s(stack_t **data_structure, unsigned int line_number);
 void mul(stack_t **data_structure, unsigned int line_number);
+void mod_s(stack_t **data_structure, unsigned int line_number);
+void stack(stack_t **data_structure, unsigned int line_number);
+void queue(stack_t **data_structure, unsigned int line_number);
 
 int abs(int n);
 int num_lenght(int n, int base);
