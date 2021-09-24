@@ -42,7 +42,7 @@ void sub(stack_t **data_structure, unsigned int line_number)
 {
 	if ((*data_structure)->next == NULL || (*data_structure)->next->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't subb, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
 		exit(EXIT_FAILURE);
 		return;
