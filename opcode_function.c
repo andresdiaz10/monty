@@ -16,11 +16,13 @@ void push(stack_t **data_structure, unsigned int line_number)
 	if (!(new_data))
 	{
 		last_token(alloc_message());
+		exit(EXIT_FAILURE);
 		return;
 	}
 	if (!(token[1]))
 	{
 		last_token(int_message(line_number));
+		exit(EXIT_FAILURE);
 		return;
 	}
 	for (index = 0 ; token[1][index] ; index++)
@@ -30,6 +32,7 @@ void push(stack_t **data_structure, unsigned int line_number)
 		if (token[1][index] < '0' || token[1][index] > '9')
 		{
 			last_token(int_message(line_number));
+			exit(EXIT_FAILURE);
 			return;
 		}
 	}
