@@ -91,7 +91,7 @@ void mul(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
-		exit(EXIT_FAILURE)
+		exit(EXIT_FAILURE);
 		return;
 	}
 
