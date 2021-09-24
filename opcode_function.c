@@ -114,3 +114,25 @@ void swap(stack_t **data_structure, unsigned int line_number)
 	aux->prev = *data_structure;
 	(*data_structure)->next = aux;
 }
+/**
+ * pop - a
+ * @data_structure: a
+ * @line_number: a
+ *
+ * Return: None
+ */
+void pop(stack_t **data_structure, unsigned int line_number)
+{	
+	stack_t *aux = NULL;
+
+	if ((*data_structure)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		last_token(EXIT_FAILURE);
+	}
+	aux = (*data_structure)->next->next;
+	free((*data_structure)->next);
+	if (aux)
+		aux->prev = *data_structure;
+	(*data_structure)->next = aux;
+}
