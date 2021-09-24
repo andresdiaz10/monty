@@ -66,6 +66,7 @@ void pall(stack_t **data_structure, unsigned int line_number);
 void pint(stack_t **data_structure, unsigned int line_number);
 void swap(stack_t **data_structure, unsigned int line_number);
 void pop(stack_t **data_structure, unsigned int line_number);
+void nop(stack_t **data_structure, unsigned int line_number);
 
 int abs(int n);
 int num_lenght(int n, int base);
