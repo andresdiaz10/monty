@@ -24,6 +24,7 @@ void add(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	(*data_structure)->next->next->n += (*data_structure)->next->n;
@@ -43,6 +44,7 @@ void sub(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't subb, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	(*data_structure)->next->next->n -= (*data_structure)->next->n;
@@ -62,12 +64,14 @@ void div_s(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	if ((*data_structure)->next->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return;
 	}
 	(*data_structure)->next->next->n /= (*data_structure)->next->n;
@@ -87,6 +91,7 @@ void mul(stack_t **data_structure, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		last_token(EXIT_FAILURE);
+		exit(EXIT_FAILURE)
 		return;
 	}
 
